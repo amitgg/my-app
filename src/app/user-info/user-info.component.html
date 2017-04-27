@@ -1,0 +1,55 @@
+<div class="container">
+  <md-card [ngStyle]="{'padding':'24px 9px 9px'}">
+  <div *ngIf="progress">
+    <div class="overlay">
+    </div>
+    <span class="text"><md-spinner [ngStyle]="{'height.px': 30, 'width.px': 30}"></md-spinner></span>
+  </div>
+    <md-card-title>User info</md-card-title>
+    <md-card-content>
+      <md-card-subtitle>{{model.email}}</md-card-subtitle>
+      <form class="example-form" (ngSubmit)="onSubmit()" #userForm="ngForm">
+        <table cellspacing="0">
+          <tr>
+            <td style="width:45%;padding:9px">
+              <md-input-container>
+                <input #firstName mdInput required placeholder="First Name" name="firstName" [(ngModel)]="model.firstName" pattern="[a-zA-Z]{2,20}">
+              </md-input-container>
+            </td>
+            <td style="width:45%;padding:9px">
+              <md-input-container>
+                <input mdInput placeholder="Last Name"  name="lastName" [(ngModel)]="model.lastName" pattern="[a-zA-Z]{2,20}">
+              </md-input-container>
+            </td>
+          </tr>
+        </table>
+        <table cellspacing="0">
+          <tr>
+            <td style="width:40%;padding:9px">
+              <md-input-container>
+                <input #pin #pinModel="ngModel" required mdInput placeholder="Pin Code" type="number" (keydown)="onKeyDown($event, 6)" name="pin" min="100000"
+                  [(ngModel)]="model.pin">  
+                <md-hint align="end">{{pin.value.length}} / 6</md-hint>
+              </md-input-container>
+            </td>
+            <td style="width:50%;padding:9px">
+              <md-input-container>
+                <input required #cityModel="ngModel" mdInput placeholder="City" [mdAutocomplete]="auto" name="city" (keydown)="0" [(ngModel)]="model.city" [readonly]="pin.length!=6">
+                <md-autocomplete #auto="mdAutocomplete">
+                  <md-option *ngFor="let city of filteredCities | async" [value]="city">
+                    {{ city }}
+                  </md-option>
+                </md-autocomplete>
+              </md-input-container>
+            </td>
+        </table>
+        <div style="padding-top:20px">
+          <button md-raised-button color="primary" [ngStyle]="{'width': '100%'}" [disabled]="!userForm.form.valid">Register</button>
+        </div>
+      </form>
+    </md-card-content>
+    <!--<md-card-actions>
+     <button style="width:100%" md-raised-button [disabled]="disabled" color="primary">Raised button</button>
+  </md-card-actions>-->
+  </md-card>
+</div>

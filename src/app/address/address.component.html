@@ -1,0 +1,42 @@
+<md-card [ngStyle]="{'padding.px':9}">
+  <md-card-title>Primary Address</md-card-title>
+  <md-card-subtitle>Your registered address. Will be used primarily for shipping and billing address.</md-card-subtitle>
+  <md-card-content>
+  <form class="example-form">
+    <md-input-container >
+      <input mdInput placeholder="Store Name" readonly value="Google">
+    </md-input-container>
+
+    <table  cellspacing="0"><tr>
+      <td><md-input-container >
+        <input mdInput placeholder="First name">
+      </md-input-container></td>
+      <td><md-input-container >
+        <input mdInput placeholder="Long Last Name That Will Be Truncated">
+      </md-input-container></td>
+    </tr></table>
+
+    <p>
+      <md-input-container>
+        <textarea mdInput placeholder="Address">{{address1}}</textarea>
+      </md-input-container>
+      <md-input-container>
+        <textarea mdInput placeholder="Address 2">{{address2}}</textarea>
+      </md-input-container>
+    </p>
+
+    <table  cellspacing="0"><tr>
+      <td><md-input-container >
+        <input mdInput placeholder="City">
+      </md-input-container></td>
+      <td><md-input-container >
+        <input mdInput placeholder="State">
+      </md-input-container></td>
+      <td><md-input-container >
+        <input mdInput #postalCode maxlength="6" placeholder="Postal Code" value="94043">
+        <md-hint align="end">{{postalCode.value.length}} / 6</md-hint>
+      </md-input-container></td>
+    </tr></table>
+  </form>
+  </md-card-content>
+</md-card>

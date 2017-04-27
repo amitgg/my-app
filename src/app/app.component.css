@@ -1,0 +1,74 @@
+:host /deep/ md-sidenav-container {
+    height:100%;
+}
+:host /deep/ md-sidenav {
+    width:70%;
+    background-color:green-700;
+}
+
+
+:host /deep/ md-toolbar {
+    min-height:40px;
+    padding: 0 0px;
+}   
+
+:host /deep/ md-toolbar-row {
+    height:48px;
+}
+
+:host a{
+    outline: none;
+    border: 0;
+ }
+ .center {
+     padding:12px;
+ }
+
+ md-nav-list.bcg-grey-100 {
+     background-color: grey;
+ }
+
+.profile-info {padding: 30px 18px 0px;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    border-bottom: 1px solid rgba(36,53,68,0.7);
+    width: 100%;
+}
+
+
+/deep/ md-nav-list{
+    padding-top: 0;
+}
+
+
+div.home-box {
+  height:10%;
+  padding:12px 12px 0px;
+  background-color: #66bb6a;
+}
+div.home-box .name {
+    padding:12px;
+    font-size:18px;
+    display:flex;
+    
+}
+
+:host /deep/ md-icon.mat-icon-36 {
+    font-size:36px;
+    height:36px;
+    width:36px;
+}
+    
+:host /deep/ md-icon.mat-icon-24 {
+    font-size:24px;
+    height:24px;
+    width:24px;
+}
+    
+:host /deep/ md-icon.mat-icon-48 {
+    font-size:48px;
+    height:48px;
+    width:48px;
+}

@@ -1,0 +1,59 @@
+<div class="cn">
+  <md-card [ngStyle]="{'padding':'24px 9px 9px', 'min-height':'40vh'}">
+<div style="text-align: center">
+<img height="100" width="100" class="img-circle" src="https://lh3.googleusercontent.com/Pr_p1YEUogLeIXeNxcX7JJlMLJHVNTwPpglfLtO-wO_wKLBCzUURmS0ecmUZ-aOzefL9=w300"/>
+</div>
+  <div *ngIf="progress">
+    <div class="overlay">
+    </div>
+    <span class="text"><md-spinner [ngStyle]="{'height.px': 30, 'width.px': 30}"></md-spinner></span>
+  </div>
+    <md-card-title>Mobile Verification</md-card-title>
+    <md-card-content>
+      <md-card-subtitle>{{email}}</md-card-subtitle>
+      <!--<form class="example-form" (ngSubmit)="onSubmit()" #userForm="ngForm">-->
+      <table cellspacing="0">
+        <tr *ngIf="validate;else otpblock">
+          <td style="width:45%;padding:9px">
+            <md-input-container>
+              <input required #mobileNumber mdInput placeholder="Mobile Number" type="number" (keyup)="onKey($event)" (keydown)="onKeyDown($event,10)"
+                name="mobileNumber" max="9999999999" [formControl]="numberControl">
+              <md-hint *ngIf="otpFailedMessage" class="warn">{{otpFailedMessage}}</md-hint>
+              <md-hint align="end">{{mobileNumber.value.length}} / 10</md-hint>
+            </md-input-container>
+          </td>
+          <td style="width:45%;padding:9px">
+            <button [disabled]="otpButtonDisabled" md-raised-button md-mini color="primary" (click)="requestOtp()">Request OTP</button>
+          </td>
+        </tr>
+        <ng-template #otpblock>
+          <tr>
+            <td colspan="2">Enter OTP sent to mobile {{numberControl.value}}</td>
+          </tr>
+          <tr>
+            <td style="width:45%;padding:9px">
+              <md-input-container>
+                <input required #otp mdInput placeholder="OTP" type="number" (keydown)="invalidOtp=false;onKeyDown($event,5)" max="99999"
+                  [formControl]="otpControl"> 
+                <md-hint *ngIf="invalidOtp" class="warn">Incorrect OTP!</md-hint>
+                <md-hint align="end">{{otp.value.length}} / 5</md-hint>
+              </md-input-container>
+            </td>
+            <td style="width:45%;padding:9px">
+              <button [disabled]="otp.value.length!=5" md-raised-button md-mini color="primary" (click)="verifyOtp()">Verify OTP</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">Wrong mobile number? <a href="javascript:void();" (click)="invalidate()" class="link">Change it</a></td>
+          </tr>
+        </ng-template>
+
+      </table>
+      
+      <!--</form>-->
+    </md-card-content>
+  </md-card>
+  <button (click)="HTMLOUT.showHtml('Hello from javascript')" >Click me</button>
+</div>
+<!--<a href="http://www.saholic.com">Navigate outside</a>
+<button md-raised-button color="primary" (click)="onSelect()">Navigate to user-info</button>-->
