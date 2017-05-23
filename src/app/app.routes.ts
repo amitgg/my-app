@@ -6,8 +6,10 @@ import { MobileVerifyComponent } from "app/mobile-verify/mobile-verify.component
 import { PageNotFoundComponent } from "app/page-not-found/page-not-found.component";
 import { EntryPointComponent } from "app/entry-point/entry-point.component";
 import { RetailerInfoComponent } from "app/retailer-info/retailer-info.component";
+import { AppComponent } from "app/app.component";
 
 export const appRoutes: Routes = [
+  { path: '', component: AppComponent },
   { path: 'address', component: AddressComponent },
   { path: 'deals', component: AddressComponent },
   { path: 'offers', component: AddressComponent },

@@ -1,53 +1,49 @@
-<div style="padding:3px">
-<md-sidenav-container *ngIf="containerVisible">
-  <md-toolbar color="primary" md-medium-tall>
-    <div style="width:100%">
-      <button md-icon-button (click)="menuClicked()">
+<div style="padding:3px;height:100%">
+  <md-sidenav-container *ngIf="containerVisible">
+    <md-toolbar color="primary" md-medium-tall>
+      <div style="width:100%">
+        <button md-icon-button (click)="menuClicked()">
         <md-icon>menu</md-icon>
       </button>
-    </div>
-  </md-toolbar>
-  <md-sidenav class="bgc-grey-100" #nav mode="over" [opened]="navopen" (close)="sideNavClosed()">
-    <div class="home-box">
+      </div>
+    </md-toolbar>
+    <md-sidenav class="bgc-grey-100" #nav mode="over" [opened]="navopen" (close)="sideNavClosed()">
+      <div class="home-box">
         <md-icon class="left mat-icon-48">account_circle</md-icon>
         <div class="left name">Amit Gupta</div>
-    </div>
-    <md-nav-list dense>
-      <a *ngFor="let action of menuList[0]" md-list-item [routerLink]="action.link" (click)="clickLink(action.link)">
-        <md-icon [color]="action.link === selectedLink?'accent':''" style="padding-right: 3px;">{{action.icon}}</md-icon>{{action.label}}
-      </a>
-    </md-nav-list>
-    <md-nav-list class="bgc-grey-50" dense>
-      <a *ngFor="let action of menuList[1]" md-list-item [routerLink]="action.link" (click)="clickLink(action.link)">
-        <md-icon [color]="action.link === selectedLink?'accent':''" style="padding-right: 3px;">{{action.icon}}</md-icon>{{action.label}}
-      </a>
-    </md-nav-list>
-  </md-sidenav>
+      </div>
+      <md-nav-list dense>
+        <a *ngFor="let action of menuList[0]" md-list-item [routerLink]="action.link" (click)="clickLink(action.link)">
+          <md-icon [color]="action.link === selectedLink?'accent':''" style="padding-right: 3px;">{{action.icon}}</md-icon>{{action.label}}
+        </a>
+      </md-nav-list>
+      <md-nav-list class="bgc-grey-50" dense>
+        <a *ngFor="let action of menuList[1]" md-list-item [routerLink]="action.link" (click)="clickLink(action.link)">
+          <md-icon [color]="action.link === selectedLink?'accent':''" style="padding-right: 3px;">{{action.icon}}</md-icon>{{action.label}}
+        </a>
+      </md-nav-list>
+    </md-sidenav>
+<!--
+    <div style="padding:8px">
+      <md-input-container>
+        <input type="text" mdInput [formControl]="stateCtrl" [mdAutocomplete]="auto" placeholder="State">
+      </md-input-container>
+      <md-autocomplete #auto="mdAutocomplete">
+        <md-option *ngFor="let state of filteredStates | async" [value]="state">
+          {{ state }}
+        </md-option>
+      </md-autocomplete>
 
-  <!--
-  <div style="padding:8px">
-    <md-input-container>
-      <input type="text" mdInput [formControl]="stateCtrl" [mdAutocomplete]="auto" placeholder="State">
-    </md-input-container>
-    <md-autocomplete #auto="mdAutocomplete">
-      <md-option *ngFor="let state of filteredStates | async" [value]="state">
-        {{ state }}
-      </md-option>
-    </md-autocomplete>
-
-     Themed Buttons
-    <div>
-      <button md-raised-button color="primary" class="text-upper">Primary</button>
-      <button md-raised-button color="accent" class="text-upper">Accent</button>
-      <button md-raised-button color="warn" class="text-upper">Warn</button>
-       Disabled Buttons 
-      <button md-button disabled>off</button>
-      <button md-raised-button disabled>off</button>
-      <button md-mini-fab disabled color="primary"><md-icon>check circle</md-icon></button>
-    </div>
-    </div>
-    -->
+      Themed Buttons
+      <div>
+        <button md-raised-button color="primary" class="text-upper">Primary</button>
+        <button md-raised-button color="accent" class="text-upper">Accent</button>
+        <button md-raised-button color="warn" class="text-upper">Warn</button> Disabled Buttons
+        <button md-button disabled>off</button>
+        <button md-raised-button disabled>off</button>
+        <button md-mini-fab disabled color="primary"><md-icon>check circle</md-icon></button> </div>
+    </div>-->
     <router-outlet></router-outlet>
-</md-sidenav-container>
-<router-outlet *ngIf="!containerVisible" ></router-outlet>
+  </md-sidenav-container>
+  <router-outlet *ngIf="!containerVisible"></router-outlet>
 </div>

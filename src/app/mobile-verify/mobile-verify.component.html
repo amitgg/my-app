@@ -20,7 +20,7 @@
                 name="mobileNumber" max="9999999999" [formControl]="numberControl">
               <md-hint *ngIf="otpFailedMessage" class="warn">{{otpFailedMessage}}</md-hint>
               <md-hint align="end">{{mobileNumber.value.length}} / 10</md-hint>
-            </md-input-container>
+            </md-input-container> 
           </td>
           <td style="width:45%;padding:9px">
             <button [disabled]="otpButtonDisabled" md-raised-button md-mini color="primary" (click)="requestOtp()">Request OTP</button>

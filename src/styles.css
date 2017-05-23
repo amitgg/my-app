@@ -17,6 +17,12 @@ body {
     background-attachment: fixed;
     background-position: top;*/ 
 }
+
+
+.main-container {
+    padding-top:70px;
+}
+
 a {
 text-decoration: none;
 }   

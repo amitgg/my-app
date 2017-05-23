@@ -8,7 +8,7 @@ import { Menu } from "app/menu";
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  containerVisible=false;
+  containerVisible=true;
   sidenavDisplay = "block";
   selectedLink:string;
   stateCtrl: FormControl;
@@ -33,10 +33,10 @@ export class AppComponent {
     'Idaho']
 
   constructor() {
-    this.stateCtrl = new FormControl();
+    /*this.stateCtrl = new FormControl();
     this.filteredStates = this.stateCtrl.valueChanges
       .startWith(null)
-      .map(name => this.filterStates(name));
+      .map(name => this.filterStates(name));*/
 
     var primaryActions:Menu[] = [];
     primaryActions.push(new Menu("deals", "local_offer", "Deals"));
@@ -54,10 +54,10 @@ export class AppComponent {
     
   }
   
-  filterStates(val: string) {
+/*  filterStates(val: string) {
     return val ? this.states.filter(s => new RegExp(`^${val}`, 'gi').test(s))
       : this.states;
-  }
+  }*/
 
   clickLink(link:string){
     this.selectedLink = link;

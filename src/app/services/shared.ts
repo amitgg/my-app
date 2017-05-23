@@ -1,5 +1,5 @@
 export const GlobalReadOnly = Object.freeze({
-    BASE_API_URL: 'http://shop2020.in:8080/profitmandi-web/',
+    BASE_API_URL: 'http://localhost:8080/profitmandi-web/',
     /*BASE_API_URL: 'http://shop2020.in:8080/profitmandi-web/',*/
     //... more of your variables
 });
