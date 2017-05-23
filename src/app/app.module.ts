@@ -34,7 +34,7 @@ export const apiPath:string = "http:localhost:8080/";
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
-    MaterialModule.forRoot(),
+    MaterialModule,
     BrowserModule,
     FormsModule,
     HttpModule,
